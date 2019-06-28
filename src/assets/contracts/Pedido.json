@@ -1,0 +1,457 @@
+[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "listaFornecedor",
+		"outputs": [
+			{
+				"name": "nomeFornecedor",
+				"type": "string"
+			},
+			{
+				"name": "emailFornecedor",
+				"type": "string"
+			},
+			{
+				"name": "tipoFornecedor",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_firebaseID",
+				"type": "string"
+			},
+			{
+				"name": "_nomeFornecedor",
+				"type": "string"
+			},
+			{
+				"name": "_tipoFornecedor",
+				"type": "string"
+			},
+			{
+				"name": "_emailFornecedor",
+				"type": "string"
+			}
+		],
+		"name": "createFornecedor",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "listaNF",
+		"outputs": [
+			{
+				"name": "idNota",
+				"type": "uint256"
+			},
+			{
+				"name": "nomeItem",
+				"type": "string"
+			},
+			{
+				"name": "descricaoItem",
+				"type": "string"
+			},
+			{
+				"name": "quantidadeItem",
+				"type": "uint256"
+			},
+			{
+				"name": "valorUnitario",
+				"type": "uint256"
+			},
+			{
+				"name": "valorTotal",
+				"type": "uint256"
+			},
+			{
+				"name": "idPedido",
+				"type": "uint256"
+			},
+			{
+				"name": "origem",
+				"type": "string"
+			},
+			{
+				"name": "destino",
+				"type": "string"
+			},
+			{
+				"name": "tipoNotafiscal",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_firebaseID",
+				"type": "string"
+			},
+			{
+				"name": "_idItem",
+				"type": "uint256"
+			},
+			{
+				"name": "_nomeItem",
+				"type": "string"
+			},
+			{
+				"name": "_descricaoItem",
+				"type": "string"
+			}
+		],
+		"name": "createItem",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "notaFiscalRegistriesAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_firebaseId",
+				"type": "string"
+			}
+		],
+		"name": "lookUpIdFornecedor",
+		"outputs": [
+			{
+				"name": "serialized",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_firebaseID",
+				"type": "string"
+			},
+			{
+				"name": "_idNota",
+				"type": "uint256"
+			},
+			{
+				"name": "_idItem",
+				"type": "uint256"
+			},
+			{
+				"name": "_idPedido",
+				"type": "uint256"
+			},
+			{
+				"name": "_nomeItem",
+				"type": "string"
+			},
+			{
+				"name": "_tipoNota",
+				"type": "string"
+			},
+			{
+				"name": "_quantidadeItem",
+				"type": "uint256"
+			},
+			{
+				"name": "_valorUnitario",
+				"type": "uint256"
+			}
+		],
+		"name": "createNotaFiscal",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "listaPedido",
+		"outputs": [
+			{
+				"name": "idPedido",
+				"type": "uint256"
+			},
+			{
+				"name": "descricaoPedido",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"name": "nomeFornecedor",
+						"type": "string"
+					},
+					{
+						"name": "emailFornecedor",
+						"type": "string"
+					},
+					{
+						"name": "tipoFornecedor",
+						"type": "string"
+					}
+				],
+				"name": "fornecedor",
+				"type": "tuple"
+			},
+			{
+				"name": "nomeFornecedor",
+				"type": "string"
+			},
+			{
+				"name": "nomeSubfornecedor",
+				"type": "string"
+			},
+			{
+				"name": "idNotaFiscal",
+				"type": "uint256"
+			},
+			{
+				"name": "nomeItem",
+				"type": "string"
+			},
+			{
+				"name": "tipoPedido",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_idNota",
+				"type": "uint256"
+			}
+		],
+		"name": "consultaValorNF",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_firebaseId",
+				"type": "string"
+			},
+			{
+				"name": "_idPedido",
+				"type": "uint256"
+			},
+			{
+				"name": "_item",
+				"type": "string"
+			},
+			{
+				"name": "_descricaoPedido",
+				"type": "string"
+			},
+			{
+				"name": "_tipoPedido",
+				"type": "string"
+			},
+			{
+				"name": "_nomeFornecedor",
+				"type": "string"
+			}
+		],
+		"name": "createPedido",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "fornecedorRegistriesAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "listaItem",
+		"outputs": [
+			{
+				"name": "idItem",
+				"type": "uint256"
+			},
+			{
+				"name": "nomeItem",
+				"type": "string"
+			},
+			{
+				"name": "descricaoItem",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "itemRegistriesAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_idNota",
+				"type": "uint256"
+			},
+			{
+				"name": "_idPedido",
+				"type": "uint256"
+			}
+		],
+		"name": "addNotaToPedido",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "pedidoRegistriesAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

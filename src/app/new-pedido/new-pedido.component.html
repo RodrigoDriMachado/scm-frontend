@@ -1,0 +1,70 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Cadastrar Pedido</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      
+      <div class="col col-md-8">
+
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+
+          <div class="form-group">
+                  <mat-form-field class="input-style">
+                    <input matInput type="number" min="0" max="100" placeholder="IDPedido" class="form-control" formControlName="idpedido">
+                  </mat-form-field>
+                  <ng-container *ngFor="let validation of validation_messages.age">
+                    <mat-error *ngIf="exampleForm.get('idpedido').hasError(validation.type) && (exampleForm.get('idpedido').dirty || exampleForm.get('idpedido').touched)">{{validation.message}}</mat-error>
+                  </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Item" class="form-control" formControlName="item">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.item">
+              <mat-error *ngIf="exampleForm.get('item').hasError(validation.type) && (exampleForm.get('item').dirty || exampleForm.get('item').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Descrição" class="form-control" formControlName="desc">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <mat-error *ngIf="exampleForm.get('desc').hasError(validation.type) && (exampleForm.get('desc').dirty || exampleForm.get('desc').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Tipo do Pedido" class="form-control" formControlName="tipopedido">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <mat-error *ngIf="exampleForm.get('tipopedido').hasError(validation.type) && (exampleForm.get('tipopedido').dirty || exampleForm.get('tipopedido').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+          </div>
+
+          <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Nome do Fornecedor" class="form-control" formControlName="nomefornecedor">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <mat-error *ngIf="exampleForm.get('nomefornecedor').hasError(validation.type) && (exampleForm.get('nomefornecedor').dirty || exampleForm.get('nomefornecedor').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Adicionar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

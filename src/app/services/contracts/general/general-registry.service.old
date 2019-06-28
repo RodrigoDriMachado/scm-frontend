@@ -1,0 +1,88 @@
+import { Injectable } from '@angular/core';
+import Web3 from 'web3';
+import { FornecedorFields } from 'src/app/Models/fornecedor';
+
+//import { General } from 'src/app/components/models/general';
+
+
+
+
+declare let require: any;
+declare let window: any;
+
+const tokenAbi = require('../../../../assets/contracts/Pedido.json');
+
+@Injectable()
+export class GeneralRegistryService {
+
+  public _generalRegistryContract: any;
+  private _web3: any;
+  private _account: any;
+  public alreadyHave: boolean;
+  private FornecedorFiled: FornecedorFields
+
+
+  constructor(
+ 
+  ) {
+    if (typeof window.web3 !== 'undefined') {
+      this._web3 = window.web3.currentProvider;
+    } else {
+      this._web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+    }
+
+    this._generalRegistryContract = this._web3.eth.contract(tokenAbi).at('0xC8f1e0A0aa867d103Ca338687F2476e1e27181FA');
+  }
+
+  public async getAccount(): Promise<string> {
+    if (this._account == null) {
+      this._account = await new Promise((resolve) => {
+        this._web3.eth.getAccounts((err, accs) => {
+          if (err != null) {
+            alert('There was an error fetching your accounts.');
+            return;
+          }
+
+          if (accs.length === 0) {
+            alert(`Couldn't get any accounts! Make sure your Ethereum client is configured correctly.`);
+            return;
+          }
+          resolve(accs[0]);
+        });
+      }) as string;
+
+      this._web3.eth.defaultAccount = this._account;
+    }
+
+    return Promise.resolve(this._account);
+  }
+
+  public async createFornecedor(FornecedorFiled) {
+    const account = await this.getAccount();
+    const transactionObject = {
+      from: account,
+      gas: 6721975,
+      gasPrice: 0
+    };
+
+  }
+
+ 
+  /*public async lookUpId(id) {
+    const account = await this.getAccount();
+    return new Promise((resolve, reject) => {
+      this._generalRegistryContract.lookUpId
+        .call(id, { from: account }, function (err, res) {
+          if (err != null) {
+            console.log(`Erro: ${err}`);
+            reject(err);
+          } else {
+            resolve(res);
+          }
+        });
+    });
+  }*/
+
+
+}
+

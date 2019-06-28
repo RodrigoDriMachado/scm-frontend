@@ -1,0 +1,62 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Cadastrar Fornecedor</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      
+      <div class="col col-md-8">
+
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+
+          <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput type="number" min="0" max="100" placeholder="ID do Fornecedor" class="form-control" formControlName="idfornecedor">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.age">
+                  <mat-error *ngIf="exampleForm.get('idfornecedor').hasError(validation.type) && (exampleForm.get('idfornecedor').dirty || exampleForm.get('idFornecedor').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Name" class="form-control" formControlName="nomefornecedor">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <mat-error *ngIf="exampleForm.get('nomefornecedor').hasError(validation.type) && (exampleForm.get('nomefornecedor').dirty || exampleForm.get('nomefornecedor').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Tipo de Fornecedor" class="form-control" formControlName="tipofornecedor">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.name">
+                <mat-error *ngIf="exampleForm.get('tipofornecedor').hasError(validation.type) && (exampleForm.get('tipofornecedor').dirty || exampleForm.get('tipofornecedor').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Email" class="form-control" formControlName="email">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <mat-error *ngIf="exampleForm.get('email').hasError(validation.type) && (exampleForm.get('email').dirty || exampleForm.get('email').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+         
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Adicionar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
